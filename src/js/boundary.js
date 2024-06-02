@@ -6,7 +6,6 @@ export class Boundary extends Actor {
             pos: new Vector(x, y),
             width: width,
             height: height,
-            color: Color.Red
         });
 
         // Stel het ankerpunt in op basis van het type grens

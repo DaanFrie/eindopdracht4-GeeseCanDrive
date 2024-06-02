@@ -1,5 +1,5 @@
 import '../css/style.css';
-import { Engine, DisplayMode } from 'excalibur';
+import { Engine, DisplayMode} from 'excalibur';
 import { ResourceLoader } from './resources.js';
 import { StartScreen } from './startScreen.js';
 import { createMainScene } from './mainScene.js';
@@ -26,6 +26,7 @@ export class Game extends Engine {
             console.error('Failed to start game', err);
         });
     }
+    
 
     resetMainScene() {
         this.removeScene('main'); // Verwijder de oude hoofdscene

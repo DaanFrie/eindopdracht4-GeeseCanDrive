@@ -1,4 +1,4 @@
-import { Actor, CollisionType, Vector, Color } from 'excalibur';
+import { Actor, CollisionType, Vector } from 'excalibur';
 
 export class FinishLineBoundary extends Actor {
     constructor(x, y, width, height, isHorizontal) {
@@ -6,7 +6,6 @@ export class FinishLineBoundary extends Actor {
             pos: new Vector(x, y),
             width: width,
             height: height,
-            color: Color.Red
         });
 
         // Stel het ankerpunt in op basis van het type grens

@@ -8,26 +8,28 @@ export class StartScreen extends Scene {
             pos: vec(engine.drawWidth / 2, engine.drawHeight / 2),
             width: engine.drawWidth,
             height: engine.drawHeight,
-            color: Color.Gray // Grijze achtergrondkleur
+            color: Color.fromHex("CECCCD")
         });
         this.add(background);
 
         // Titeltekst
-        const title = new Label({
-            pos: vec(engine.drawWidth / 2, 200),
-            text: 'Welkom bij mijn spel',
-            font: new Font({
-                family: 'Arial',
-                size: 48,
-                color: Color.White,
-                textAlign: TextAlign.Center
-            })
+        const text = new Actor({
+            pos: vec(engine.drawWidth / 2, 75), // Position the text in the middle of the screen vertically
+            scale: new Vector(0.5, 0.5),
         });
-        this.add(title);
+        text.graphics.add(Sprite.from(Resources.starttext)); // Use the gameovertext resource
+        this.add(text);
+
+        const text2 = new Actor({
+            pos: vec(engine.drawWidth / 2, 660), // Position the text in the middle of the screen vertically
+            scale: new Vector(0.29, 0.29),
+        });
+        text2.graphics.add(Sprite.from(Resources.instruction1)); // Use the gameovertext resource
+        this.add(text2);
 
         // Play Again Button
         const button = new Actor({
-            pos: vec(engine.drawWidth / 2, 400), // Positioneer de knop
+            pos: vec(engine.drawWidth / 2, engine.drawHeight / 2), // Positioneer de knop
             scale: new Vector(0.5, 0.5),
         });
         button.graphics.add(Sprite.from(Resources.playagainbutton)); // Gebruik de playagainbutton resource

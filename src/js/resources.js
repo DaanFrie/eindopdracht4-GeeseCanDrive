@@ -12,6 +12,8 @@ const Resources = {
     whiteLine: new ImageSource('images/whiteline.png'), // Zorg dat de bestandsnaam correct is
     winimage: new ImageSource('images/winimage.png'),
     wintext: new ImageSource('images/wintext.png'),
+    starttext: new ImageSource('images/starttext.png'),
+    instruction1: new ImageSource('images/instruction1.png'),
 
 }
 
