@@ -1,7 +1,7 @@
 import { ImageSource, Loader } from 'excalibur';
 
 const Resources = {
-    playerGoose: new ImageSource('images/playergoose.png'),
+    playerGoose: new ImageSource('images/playerGoose.png'),
     backgroundImage: new ImageSource('images/background.png'),
     enemy: new ImageSource('images/enemy.png'),
     gameoverimage: new ImageSource('images/gameoverimage.png'),
