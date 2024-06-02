@@ -2,7 +2,6 @@ import { FinishLineBoundary } from './finishLineBoundary.js';
 import { Actor, Vector, Keys, CollisionType } from 'excalibur';
 import { Resources } from './resources.js';
 import { Boundary } from './boundary.js';
-import { Enemy } from './enemy.js';
 
 export class PlayerGoose extends Actor {
     constructor() {
