@@ -1,4 +1,4 @@
-import { FinishLineBoundary } from './finishLineBoundary.js'; // Importeer FinishLineBoundary
+import { FinishLineBoundary } from './finishLineBoundary.js'; 
 import { Actor, Vector, Keys, CollisionType } from 'excalibur';
 import { Resources } from './resources.js';
 import { Boundary } from './boundary.js';
@@ -21,12 +21,11 @@ export class PlayerGoose extends Actor {
     }
 
     onPreUpdate(engine) {
-        const mainScene = this.scene; // Verkrijg een referentie naar de huidige scène
+        const mainScene = this.scene; 
 
         let xspeed = this.vel.x;
         let yspeed = this.vel.y;
 
-        // Verticale beweging
         if (engine.input.keyboard.isHeld(Keys.W) || engine.input.keyboard.isHeld(Keys.Up)) {
             yspeed -= this.acceleration;
         } else if (engine.input.keyboard.isHeld(Keys.S) || engine.input.keyboard.isHeld(Keys.Down)) {
@@ -41,7 +40,6 @@ export class PlayerGoose extends Actor {
             }
         }
 
-        // Horizontale beweging
         if (engine.input.keyboard.isHeld(Keys.A) || engine.input.keyboard.isHeld(Keys.Left)) {
             xspeed -= this.acceleration;
         } else if (engine.input.keyboard.isHeld(Keys.D) || engine.input.keyboard.isHeld(Keys.Right)) {
@@ -56,7 +54,6 @@ export class PlayerGoose extends Actor {
             }
         }
 
-        // Controleer botsing met de finishlijn
         const finishLineBoundary = mainScene.actors.find(actor => actor instanceof FinishLineBoundary);
 
         if (
@@ -66,45 +63,22 @@ export class PlayerGoose extends Actor {
             this.pos.y < finishLineBoundary.pos.y + finishLineBoundary.height &&
             this.pos.y + this.height > finishLineBoundary.pos.y
         ) {
-            // Ga naar de game-over scène
             engine.goToScene('win');
         }
-        // Controleer botsing met grenzen
+
         const bounds = engine.currentScene.actors.filter(actor => actor instanceof Boundary);
 
         bounds.forEach(boundary => {
-            // Controleer op overlap
             if (
                 this.pos.x < boundary.pos.x + boundary.width &&
                 this.pos.x + this.width > boundary.pos.x &&
                 this.pos.y < boundary.pos.y + boundary.height &&
                 this.pos.y + this.height > boundary.pos.y
             ) {
-                // Ga naar de game-over scène
                 engine.goToScene('gameover');
             }
         });
 
-        // Controleer botsing met vijanden
-        const enemies = engine.currentScene.actors.filter(actor => actor instanceof Enemy);
-
-        enemies.forEach(enemy => {
-            // Controleer op overlap met de hitbox van de vijand
-            if (
-                this.pos.x < enemy.pos.x + enemy.width &&
-                this.pos.x + this.width > enemy.pos.x &&
-                this.pos.y < enemy.pos.y + enemy.height &&
-                this.pos.y + this.height > enemy.pos.y
-            ) {
-                // Stop de speler
-                this.vel = new Vector(0, 0);
-                xspeed = 0;
-                yspeed = 0;
-                console.log('je staat stil');
-            }
-        });
-
-        // Controleer of de snelheid de maximale snelheid overschrijdt
         const speed = Math.sqrt(xspeed * xspeed + yspeed * yspeed);
         if (speed > this.maxSpeed) {
             const ratio = this.maxSpeed / speed;

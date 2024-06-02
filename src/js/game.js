@@ -17,11 +17,11 @@ export class Game extends Engine {
 
         this.start(ResourceLoader).then(() => {
             console.log("Start the game!");
-            this.add('start', new StartScreen()); // Voeg startscherm toe
-            this.add('main', createMainScene(this)); // Voeg hoofdscene toe
-            this.add('gameover', new GameOver()); // Voeg game over scene toe
-            this.add('win', new Win()); // Voeg game over scene toe
-            this.goToScene('start'); // Start met startscherm
+            this.add('start', new StartScreen()); 
+            this.add('main', createMainScene(this)); 
+            this.add('gameover', new GameOver()); 
+            this.add('win', new Win()); 
+            this.goToScene('start'); 
         }).catch(err => {
             console.error('Failed to start game', err);
         });
@@ -29,8 +29,8 @@ export class Game extends Engine {
     
 
     resetMainScene() {
-        this.removeScene('main'); // Verwijder de oude hoofdscene
-        this.add('main', createMainScene(this)); // Voeg een nieuwe hoofdscene toe
+        this.removeScene('main'); 
+        this.add('main', createMainScene(this)); 
     }
 }
 

@@ -1,7 +1,7 @@
 import { ImageSource, Loader } from 'excalibur';
 
 const Resources = {
-    playerGoose: new ImageSource('images/playerGoose.png'),
+    playerGoose: new ImageSource('images/playergoose.png'),
     backgroundImage: new ImageSource('images/background.png'),
     enemy: new ImageSource('images/enemy.png'),
     boundary: new ImageSource('images/boundary.png'),
@@ -9,7 +9,7 @@ const Resources = {
     gameovertext: new ImageSource('images/gameovertext.png'),
     playagainbutton: new ImageSource('images/playagainbutton.png'),
     finishLine: new ImageSource('images/finishline.png'),
-    whiteLine: new ImageSource('images/whiteline.png'), // Zorg dat de bestandsnaam correct is
+    whiteLine: new ImageSource('images/whiteline.png'),
     winimage: new ImageSource('images/winimage.png'),
     wintext: new ImageSource('images/wintext.png'),
     starttext: new ImageSource('images/starttext.png'),

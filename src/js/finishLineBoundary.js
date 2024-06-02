@@ -8,12 +8,7 @@ export class FinishLineBoundary extends Actor {
             height: height,
         });
 
-        // Stel het ankerpunt in op basis van het type grens
-        if (isHorizontal) {
-            this.anchor.setTo(0, 0); // Horizontale grens, ankerpunt linksboven
-        } else {
-            this.anchor.setTo(1, 0); // Verticale grens, ankerpunt rechtsboven
-        }
+            this.anchor.setTo(0, 0);
 
         this.body.collisionType = CollisionType.Fixed;
     }

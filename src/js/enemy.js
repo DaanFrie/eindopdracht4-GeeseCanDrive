@@ -1,41 +1,41 @@
-import { Actor, Vector, CollisionType, Util, Engine } from "excalibur";
+import { Actor, Vector, CollisionType } from "excalibur";
 import { Resources } from './resources.js';
 
 export class Enemy extends Actor {
-    constructor() {
+    constructor(speed = 450) {
         super({
             pos: new Vector(655, 750),
             scale: new Vector(0.24, 0.24),
         });
 
+        this.speed = speed;
         this.body.collisionType = CollisionType.Active;
         this.graphics.use(Resources.enemy.toSprite());
     }
 
     onInitialize(engine) {
         this.actions
-            .moveBy(new Vector(0, 1300), 450) // Move down
-            .moveBy(new Vector(145, 0), 450)  // Move right
-            .moveBy(new Vector(0, -610), 450) // Move up
-            .moveBy(new Vector(590, 0), 450) // Move right
-            .moveBy(new Vector(0, 340), 450)
-            .moveBy(new Vector(250, 0), 450)
-            .moveBy(new Vector(270, -700), 450)
-            .moveBy(new Vector(0, -200), 450)
-            .moveBy(new Vector(-170, 0), 450)
-            .moveBy(new Vector(0, 205), 450)
-            .moveBy(new Vector(-240, 0), 450)
-            .moveBy(new Vector(0, -360), 450)
-            .moveBy(new Vector(-590, -210), 450)
-            .moveBy(new Vector(-260, 0), 450)
-            .moveBy(new Vector(0, 110), 450)
+            .moveBy(new Vector(0, 1300), this.speed)
+            .moveBy(new Vector(145, 0), this.speed)
+            .moveBy(new Vector(0, -610), this.speed)
+            .moveBy(new Vector(590, 0), this.speed)
+            .moveBy(new Vector(0, 340), this.speed)
+            .moveBy(new Vector(250, 0), this.speed)
+            .moveBy(new Vector(270, -700), this.speed)
+            .moveBy(new Vector(0, -200), this.speed)
+            .moveBy(new Vector(-170, 0), this.speed)
+            .moveBy(new Vector(0, 205), this.speed)
+            .moveBy(new Vector(-240, 0), this.speed)
+            .moveBy(new Vector(0, -360), this.speed)
+            .moveBy(new Vector(-590, -210), this.speed)
+            .moveBy(new Vector(-260, 0), this.speed)
+            .moveBy(new Vector(0, 110), this.speed)
             .callMethod(() => {
-                // Ga naar de game-over scène
                 engine.goToScene('gameover');
-            }); // Roep een methode aan nadat de bewegingsacties zijn voltooid
+            });
     }
 
-    onPreUpdate(engine, delta) {
+    onPreUpdate() {
         const velocity = this.vel;
 
         if (velocity.x !== 0 || velocity.y !== 0) {
@@ -44,5 +44,4 @@ export class Enemy extends Actor {
     }
 }
 
-// Exporteer de Enemy klasse
 export default Enemy;
