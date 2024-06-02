@@ -13,8 +13,8 @@ export class PlayerGoose extends Actor {
         });
 
         this.maxSpeed = 650;
-        this.acceleration = 9;
-        this.deceleration = 5;
+        this.acceleration = 18;
+        this.deceleration = 10;
 
         this.body.collisionType = CollisionType.Active;
         this.graphics.use(Resources.playerGoose.toSprite());
