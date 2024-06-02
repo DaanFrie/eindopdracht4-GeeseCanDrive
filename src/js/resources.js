@@ -4,7 +4,6 @@ const Resources = {
     playerGoose: new ImageSource('images/playergoose.png'),
     backgroundImage: new ImageSource('images/background.png'),
     enemy: new ImageSource('images/enemy.png'),
-    boundary: new ImageSource('images/boundary.png'),
     gameoverimage: new ImageSource('images/gameoverimage.png'),
     gameovertext: new ImageSource('images/gameovertext.png'),
     playagainbutton: new ImageSource('images/playagainbutton.png'),
